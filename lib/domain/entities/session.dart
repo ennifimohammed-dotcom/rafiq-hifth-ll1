@@ -1,24 +1,18 @@
-enum SessionType { memorization, revision }
-
-enum SessionRating { excellent, good, weak }
+enum SessionRating { excellent, good, average, poor }
 
 extension SessionRatingX on SessionRating {
   String get label => switch (this) {
         SessionRating.excellent => 'ممتاز',
         SessionRating.good => 'جيد',
-        SessionRating.weak => 'ضعيف',
-      };
-  int get score => switch (this) {
-        SessionRating.excellent => 3,
-        SessionRating.good => 2,
-        SessionRating.weak => 1,
+        SessionRating.average => 'متوسط',
+        SessionRating.poor => 'ضعيف',
       };
 }
 
 class SessionEntity {
   final String id;
   final String studentId;
-  final SessionType type;
+  final String type;
   final String surah;
   final int ayahStart;
   final int ayahEnd;
